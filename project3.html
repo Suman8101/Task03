@@ -1,0 +1,91 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a3694;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #registration-form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 2 2 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #display-data {
+            margin-top: 20px;
+        }
+
+        #display-photo {
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+        #registration-form h2{
+            color: chocolate;
+        }
+    </style>
+    <title>Student Registration Form</title>
+</head>
+<body>
+
+<div id="registration-form">
+    <h2>Student Registration Form</h2>
+    <form id="regForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="photo">Photo URL:</label>
+        <input type="text" id="photo" name="photo"><br>
+
+        <button type="button" onclick="displayData()">Submit</button>
+    </form>
+</div>
+
+<div id="display-data"></div>
+<div id="display-photo"></div>
+
+<script>
+    function displayData() {
+        var firstName = document.getElementById('firstName').value;
+        var lastName = document.getElementById('lastName').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var photoUrl = document.getElementById('photo').value;
+
+        var displayDiv = document.getElementById('display-data');
+        displayDiv.innerHTML = "<h2>Entered Data:</h2>" +
+            "<p><strong>First Name:</strong> " + firstName + "</p>" +
+            "<p><strong>Last Name:</strong> " + lastName + "</p>" +
+            "<p><strong>Email:</strong> " + email + "</p>" +
+            "<p><strong>Password:</strong> " + password + "</p>";
+
+        var displayPhoto = document.getElementById('display-photo');
+        displayPhoto.innerHTML = "<h2>Photo:</h2>" +
+            "<img src='" + photoUrl + "' alt='User Photo'>";
+    }
+</script>
+
+</body>
+</html>
